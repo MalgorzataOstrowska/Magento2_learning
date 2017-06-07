@@ -23,7 +23,7 @@ class Index extends Action
         $textDisplay = new DataObject(array('text' => 'Mageplaza'));
         $this->_eventManager->dispatch('cminds_helloworld_display_text', ['text' => $textDisplay]);
         echo $textDisplay->getText();
-        exit;
+//        exit;
 
         $resultPage = $this->_resultPageFactory->create();
 

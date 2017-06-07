@@ -26,17 +26,20 @@ class Helloworld extends Template
      * @param Template\Context $context
      * @param array $data
      * @param Data $dataHelper
-     * @param ScopeConfigInterface $scopeConfig
+//     * @param ScopeConfigInterface $scopeConfig
      */
     public function __construct(
         Template\Context $context,
         array $data = [],
-        Data $dataHelper,
-        ScopeConfigInterface $scopeConfig
+        Data $dataHelper
+//        ScopeConfigInterface $scopeConfig     // Errors during compilation:
+                                                // Incorrect dependency in class (...) ScopeConfigInterface already exists in context object
+
+                                                // this class is already part of the parent
     )
     {
         $this->helper = $dataHelper;
-        $this->scopeConfig = $scopeConfig;
+//        $this->scopeConfig = $scopeConfig;
 
         parent::__construct($context, $data);
     }
