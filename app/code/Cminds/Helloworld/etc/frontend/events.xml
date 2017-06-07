@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
-    <!-- you can change this event name -->
     <event name="cminds_helloworld_display_text">
         <observer name="hello_world_display" instance="Cminds\Helloworld\Observer\ChangeDisplayText" />
+    </event>
+    <event name="wishlist_add_product">
+        <observer name="wish_list_add_product" instance="Cminds\Helloworld\Observer\WishListAddProduct" />
     </event>
 </config>
