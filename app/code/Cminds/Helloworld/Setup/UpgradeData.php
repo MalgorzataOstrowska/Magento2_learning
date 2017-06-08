@@ -21,6 +21,15 @@ class UpgradeData implements UpgradeDataInterface
             $setup->getConnection()
                 ->update($table, ['season' => 'winter'], 'greeting_id IN (1,2)');
         }
+
+        if ($context->getVersion()
+            && version_compare($context->getVersion(), '1.0.2') < 0
+        ) {
+            $table = $setup->getTable('cminds_helloworld_post');
+            $setup->getConnection()
+                ->insertForce($table, ['name' => "Sample title 1",
+                    'post_content' => "Sample content by Mageplaza.com"]);
+        }
         $setup->endSetup();
     }
 }

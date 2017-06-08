@@ -2,6 +2,7 @@
 
 namespace Cminds\Helloworld\Setup;
 
+use Magento\Framework\DB\Ddl\Table;
 use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
@@ -17,14 +18,14 @@ class InstallSchema implements InstallSchemaInterface
             ->newTable($setup->getTable('cminds_greeting_message'))
             ->addColumn(
                 'greeting_id',
-                \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                Table::TYPE_INTEGER,
                 null,
                 ['identity' => true, 'unsigned' => true, 'nullable' => false, 'primary' => true],
                 'Greeting ID'
             )
             ->addColumn(
                 'message',
-                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                Table::TYPE_TEXT,
                 255,
                 ['nullable' => false, 'default' => ''],
                 'Message'
