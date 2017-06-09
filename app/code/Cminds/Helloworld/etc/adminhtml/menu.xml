@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Cminds_Helloworld::helloworld"
+             title="Hello World"
+             module="Cminds_Helloworld"
+             sortOrder="51"
+             resource="Cminds_Helloworld::helloworld"/>
+        <add id="Cminds_Helloworld::post"
+             title="Posts"
+             module="Cminds_Helloworld"
+             sortOrder="10"
+             action="post/post/index"
+             resource="Cminds_Helloworld::post"
+             parent="Cminds_Helloworld::helloworld"/>
+        <add id="Cminds_Helloworld::hello_configuration"
+             title="Configuration"
+             module="Cminds_Helloworld"
+             sortOrder="99"
+             parent="Cminds_Helloworld::helloworld"
+             action="adminhtml/system_config/edit/section/helloworld"
+             resource="Cminds_Helloworld::helloworld_configuration"/>
+
+        <add id="Cminds_Helloworld::cminds"
+             title="Cminds"
+             module="Cminds_Helloworld"
+             sortOrder="30"
+             action="helloworld/index/index"
+             parent="Magento_Catalog::catalog"
+             resource="Cminds_Helloworld::product"/>
+        <add id="Cminds_Helloworld::index"
+             title="Index"
+             module="Cminds_Helloworld"
+             sortOrder="31"
+             action="post/post/index"
+             parent="Cminds_Helloworld::cminds"
+             resource="Cminds_Helloworld::index"/>
+    </menu>
+</config>
