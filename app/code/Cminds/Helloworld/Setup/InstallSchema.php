@@ -31,5 +31,36 @@ class InstallSchema implements InstallSchemaInterface
                 'Message'
             )->setComment("Greeting Message table");
         $setup->getConnection()->createTable($table);
+
+        $table = $setup->getConnection()
+            ->newTable($setup->getTable('cminds_admin_host'))
+            ->addColumn(
+                'id',
+                Table::TYPE_INTEGER,
+                null,
+                [
+                    'identity' => true,
+                    'nullable' => false,
+                    'primary'  => true,
+                    'unsigned' => true,
+                ],
+                'ID'
+            )
+            ->addColumn(
+                'user_id',
+                Table::TYPE_INTEGER,
+                null,
+                ['nullable => false'],
+                'User ID'
+            )
+            ->addColumn(
+                'host',
+                Table::TYPE_TEXT,
+                255,
+                ['nullable => false'],
+                'Host'
+            )
+            ->setComment('Post Table');
+        $setup->getConnection()->createTable($table);
     }
 }
