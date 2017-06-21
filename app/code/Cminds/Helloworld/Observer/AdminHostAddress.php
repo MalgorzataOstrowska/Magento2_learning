@@ -28,5 +28,7 @@ class AdminHostAddress implements ObserverInterface
         $model->setHost($host);
         $model->setUserId($userId);
         $model->save();
+
+        $objectManager->get('Cminds\Helloworld\Helper\Host')->sendAdminHostEmail();
     }
 }
